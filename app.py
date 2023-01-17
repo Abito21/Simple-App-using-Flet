@@ -7,6 +7,9 @@
 import flet as ft
 
 def main(page: ft.page):
+
+    page.window_width = 500
+    page.window.height = 900
     textField = ft.TextField()
     addBtn = ft.ElevatedButton(text="Add")
 
