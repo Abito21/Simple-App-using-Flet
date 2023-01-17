@@ -1,6 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+
+@author: Abid Juliant Indraswara
+"""
+
 import flet as ft
 
-def main(page : ft.page):
-    pass
+def main(page: ft.page):
+    textField = ft.TextField()
+    addBtn = ft.ElevatedButton(text="Add")
 
-ft.app(target=main, view=ft.WEB_BROWSER)
+    page.add(textField,
+             addBtn)
+
+
+ft.app(target=main)
