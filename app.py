@@ -13,9 +13,9 @@ def main(page: ft.Page):
     page.bgcolor = "#00337C"
     textField = ft.TextField(width=350)
     addBtn = ft.ElevatedButton(text="Add")
+    entriesRow = ft.Row(controls=[textField, addBtn], alignment=ft.MainAxisAlignment.SPACE_EVENLY)
 
-    page.add(textField,
-             addBtn)
+    page.add(entriesRow)
 
 
 ft.app(target=main)
