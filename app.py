@@ -25,7 +25,7 @@ def main(page: ft.Page):
 
     # Check Box
     checkBox = ft.Checkbox(value=True)
-    checkBoxText = ft.Text(value="Task 1", width=350, bgcolor="WHITE", size=24)
+    checkBoxText = ft.Text(value="Task 1", width=350, bgcolor="#00337C", size=15, color="WHITE")
 
     entriesRow = ft.Row(controls=[textField, addBtn], 
                         alignment=ft.MainAxisAlignment.SPACE_BETWEEN)
