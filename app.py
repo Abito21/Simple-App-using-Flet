@@ -21,7 +21,7 @@ def main(page: ft.Page):
 
     # Text Box
     textField = ft.TextField(width=350)
-    addBtn = ft.ElevatedButton(text="Add", on_click=addTask)
+    addBtn = ft.FloatingActionButton(icon=ft.icons.ADD, on_click=addTask)
 
     # Check Box
     checkBox = ft.Checkbox(value=True)
