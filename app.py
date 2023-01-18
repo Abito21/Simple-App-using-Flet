@@ -11,7 +11,7 @@ def main(page: ft.Page):
     page.window_width = 500
     page.window_height = 900
     page.bgcolor = "#00337C"
-    textField = ft.TextField()
+    textField = ft.TextField(width=350)
     addBtn = ft.ElevatedButton(text="Add")
 
     page.add(textField,
