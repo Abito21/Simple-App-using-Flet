@@ -34,6 +34,26 @@ class task(ft.UserControl):
         self.displayTask = ft.Checkbox(label=self.taskName, value=False)
         self.editName = ft.TextField()
 
+        self.displayView = ft.Row(controls=[self.displayTask,
+                                  ft.Row(controls=[ft.IconButton(ft.icons.CREATE_OUTLINED,
+                                                                 on_click=self.editClick),
+                                                   ft.IconButton(ft.icons.DELETE_OUTLINED,
+                                                                 on_click=self.deleteClick)])])
+        self.editView = ft.Row(visible=False,
+                               controls=[self.editName,
+                                         ft.IconButton(ft.icons.DELETE_OUTLINED,
+                                                       on_click=self.saveClick)])
+        return ft.Column(controls=[self.displayView, self.editView])
+
+    def editClick(self, e):
+        pass
+    
+    def saveClick(self, e):
+        pass
+    
+    def deleteClick(self, e):
+        pass
+
 def main(page: ft.Page):
     page.title = "Tasking App by AbidIndraswara"
     page.window_width = 500
