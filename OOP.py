@@ -14,7 +14,8 @@ class tasksApp(ft.UserControl):
                                               on_click=self.addClick)
         self.tasks = ft.Column()
         taskRow = ft.Column(controls=[
-            ft.Row(controls=[self.textField, self.addBtn]),
+            ft.Row(alignment= ft.MainAxisAlignment.SPACE_BETWEEN,
+                   controls=[self.textField, self.addBtn]),
             self.tasks
         ])
         return taskRow
@@ -26,7 +27,8 @@ class tasksApp(ft.UserControl):
         self.update()
 
     def taskDelete(self, task):
-        pass
+        self.tasks.controls.remove(task)
+        self.update()
 
 class Task(ft.UserControl):
     def __init__(self, taskName, taskDelete):
@@ -38,14 +40,16 @@ class Task(ft.UserControl):
         self.displayTask = ft.Checkbox(label=self.taskName, value=False)
         self.editName = ft.TextField()
 
-        self.displayView = ft.Row(controls=[self.displayTask,
+        self.displayView = ft.Row(alignment= ft.MainAxisAlignment.SPACE_BETWEEN,
+                                  controls=[self.displayTask,
                                   ft.Row(controls=[ft.IconButton(ft.icons.CREATE_OUTLINED,
                                                                  on_click=self.editClick),
                                                    ft.IconButton(ft.icons.DELETE_OUTLINED,
                                                                  on_click=self.deleteClick)])])
-        self.editView = ft.Row(visible=False,
+        self.editView = ft.Row(alignment= ft.MainAxisAlignment.SPACE_BETWEEN,
+                               visible=False,
                                controls=[self.editName,
-                                         ft.IconButton(ft.icons.DELETE_OUTLINED,
+                                         ft.IconButton(ft.icons.DONE_OUTLINED,
                                                        on_click=self.saveClick)])
         return ft.Column(controls=[self.displayView, self.editView])
 
@@ -56,10 +60,13 @@ class Task(ft.UserControl):
         self.update()
     
     def saveClick(self, e):
-        pass
+        self.displayView.visible = True
+        self.editView.visible = False
+        self.displayTask.label = self.editName.value
+        self.update()
     
     def deleteClick(self, e):
-        pass
+        self.taskDelete(self)
 
 def main(page: ft.Page):
     page.title = "Tasking App by AbidIndraswara"
