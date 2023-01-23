@@ -24,6 +24,16 @@ class tasksApp(ft.UserControl):
     def taskDelete(self, task):
         pass
 
+class task(ft.UserControl):
+    def __init__(self, taskName, taskDelete):
+        super().__init__()
+        self.taskName = taskName
+        self.taskDelete = taskDelete
+    
+    def build(self):
+        self.displayTask = ft.Checkbox(label=self.taskName, value=False)
+        self.editName = ft.TextField()
+
 def main(page: ft.Page):
     page.title = "Tasking App by AbidIndraswara"
     page.window_width = 500
