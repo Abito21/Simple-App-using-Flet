@@ -50,7 +50,10 @@ class Task(ft.UserControl):
         return ft.Column(controls=[self.displayView, self.editView])
 
     def editClick(self, e):
-        pass
+        self.displayView.visible = False
+        self.editView.visible = True
+        self.editName.value = self.displayTask.label
+        self.update()
     
     def saveClick(self, e):
         pass
@@ -62,7 +65,7 @@ def main(page: ft.Page):
     page.title = "Tasking App by AbidIndraswara"
     page.window_width = 500
     page.window_height = 700
-    page.bgcolor = "WHITE"
+    page.bgcolor = "GREY"
 
     taskingApp = tasksApp()
     page.add(taskingApp)
