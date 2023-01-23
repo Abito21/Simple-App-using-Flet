@@ -10,21 +10,25 @@ class tasksApp(ft.UserControl):
 
     def build(self):
         self.textField = ft.TextField(width=350)
-        self.addBtn = ft.FloatingActionButton(icon= ft.Icon.ADD,
+        self.addBtn = ft.FloatingActionButton(icon= ft.icons.ADD,
                                               on_click=self.addClick)
         self.tasks = ft.Column()
         taskRow = ft.Column(controls=[
             ft.Row(controls=[self.textField, self.addBtn]),
             self.tasks
         ])
+        return taskRow
 
     def addClick(self, e):
-        pass
+        task = Task(self.textField.value, self.taskDelete)
+        self.tasks.controls.append(task)
+        self.textField.value = ""
+        self.update()
 
     def taskDelete(self, task):
         pass
 
-class task(ft.UserControl):
+class Task(ft.UserControl):
     def __init__(self, taskName, taskDelete):
         super().__init__()
         self.taskName = taskName
@@ -60,7 +64,7 @@ def main(page: ft.Page):
     page.window_height = 700
     page.bgcolor = "WHITE"
 
-    taskingApp = tasksApp
+    taskingApp = tasksApp()
     page.add(taskingApp)
 
 ft.app(target=main)
