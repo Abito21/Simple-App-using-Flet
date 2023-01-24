@@ -69,7 +69,7 @@ class Task(ft.UserControl):
         self.taskDelete(self)
 
 def main(page: ft.Page):
-    page.title = "Tasking App by AbidIndraswara"
+    page.title = "Task App"
     page.window_width = 500
     page.window_height = 700
     page.bgcolor = "GREY"
